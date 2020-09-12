@@ -1,0 +1,44 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="frequency_entries">
+        <item>1 Hour</item>
+        <item>2 Hours</item>
+        <item>3 Hours</item>
+        <item>6 Hours</item>
+        <item>9 Hours</item>
+        <item>12 Hours</item>
+        <item>24 Hours</item>
+    </string-array>
+
+    <string-array name="frequency_values">
+        <item>60</item>
+        <item>120</item>
+        <item>180</item>
+        <item>240</item>
+        <item>540</item>
+        <item>720</item>
+        <item>1440</item>
+    </string-array>
+
+    <string-array name="start_entries">
+        <item>09:00</item>
+        <item>12:00</item>
+        <item>3 Hours</item>
+        <item>6 Hours</item>
+        <item>9 Hours</item>
+        <item>12 Hours</item>
+        <item>24 Hours</item>
+    </string-array>
+
+    <string-array name="start_values">
+        <item>60</item>
+        <item>120</item>
+        <item>180</item>
+        <item>240</item>
+        <item>540</item>
+        <item>720</item>
+        <item>1440</item>
+    </string-array>
+
+
+</resources>

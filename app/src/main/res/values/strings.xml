@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Daily Reminders</string>
+    <!-- Settings Activity Title -->
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Notifications</string>
+    <string name="priority_header">Silence Notifications</string>
+
+    <!-- Messages Preferences -->
+    <string name="reminder_start">Reminder start time</string>
+    <string name="frequency">Frequency of reminders</string>
+
+    <!-- Sync Preferences -->
+    <string name="notification_priority_type">Mute</string>
+    <string name="silent_summary_on">Enabled - Notification will neither vibrate nor make a sound</string>
+    <string name="silent_summary_off">Disabled - Notification will vibrate and make a sound</string>
+
+    <string name="reminders_notification_channel">Notification Reminders</string>
+    <string name="reminders_notification_description">For your periodic reminders</string>
+
+    <string name="reminder_loved">Remember, you are loved, you are worthy</string>
+    <string name="reminder_jaw">Unclench your jaw</string>
+    <string name="reminder_water">Drink water, now, go drink a glass</string>
+    <string name="reminder_shoulders">Posture check, sit up straight, relax your shoulders</string>
+    <string name="reminder_forehead">Is your brow furrowed? Relax your forehead muscles</string>
+
+    <string-array name="reminders">
+        <item>@string/reminder_loved</item>
+        <item>@string/reminder_jaw</item>
+        <item>@string/reminder_water</item>
+        <item>@string/reminder_shoulders</item>
+        <item>@string/reminder_forehead</item>
+    </string-array>
+    <string name="title_activity_test">TestActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="mark_as_read">Mark as read</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
