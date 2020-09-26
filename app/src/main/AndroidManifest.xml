@@ -29,6 +29,14 @@
             android:name="androidx.work.impl.WorkManagerInitializer"
             android:authorities="${applicationId}.workmanager-init"
             tools:node="remove" />
+
+        <receiver
+            android:name=".broadcasts.NotificationBroadcast"
+            android:exported="true">
+            <!--<intent-filter>
+                <action android:name="android.intent.action." />
+            </intent-filter>-->
+        </receiver>
     </application>
 
 </manifest>

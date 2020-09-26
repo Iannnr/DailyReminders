@@ -28,6 +28,9 @@ class NotificationListViewModel @ViewModelInject constructor(
             notificationRepo
                 .allNotifications
                 .subscribeOn(Schedulers.io())
+                .map {
+                    it.sortedByDescending { it.id }
+                }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(_notifications::postValue, {})
         )

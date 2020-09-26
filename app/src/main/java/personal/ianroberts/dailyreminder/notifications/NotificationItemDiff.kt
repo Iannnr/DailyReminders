@@ -10,6 +10,6 @@ class NotificationItemDiff : DiffUtil.ItemCallback<NotificationItem>() {
     }
 
     override fun areContentsTheSame(oldItem: NotificationItem, newItem: NotificationItem): Boolean {
-        return oldItem.id == newItem.id && oldItem.content == newItem.content && oldItem.read == newItem.read
+        return oldItem == newItem
     }
 }
