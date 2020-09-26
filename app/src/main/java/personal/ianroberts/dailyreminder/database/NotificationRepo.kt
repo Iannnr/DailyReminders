@@ -12,4 +12,6 @@ class NotificationRepo @Inject constructor(private val dao: NotificationDao) : B
     override fun delete(item: List<NotificationItem>) = dao.delete(*item.toTypedArray())
 
     val allNotifications = dao.getAllNotifications()
+
+    fun getNotification(notificationId: Int) = dao.getNotification(notificationId)
 }

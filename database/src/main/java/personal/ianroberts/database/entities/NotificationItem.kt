@@ -8,5 +8,6 @@ data class NotificationItem(
     @PrimaryKey(autoGenerate = false) val id: Long,
     val time: Long,
     val content: String,
-    val read: Boolean = false
+    val read: Boolean = false,
+    val notificationId: Int
 )

@@ -9,10 +9,13 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.IconCompat
 import androidx.core.graphics.drawable.toBitmap
+import androidx.core.graphics.drawable.toIcon
 import dagger.hilt.android.qualifiers.ApplicationContext
 import personal.ianroberts.dailyreminder.Constants
 import personal.ianroberts.dailyreminder.R
+import personal.ianroberts.dailyreminder.broadcasts.NotificationBroadcast
 import personal.ianroberts.dailyreminder.preferences.PreferenceManager
 import javax.inject.Inject
 
@@ -49,6 +52,14 @@ class NotificationFactoryImpl @Inject constructor(
 
         val bm = ContextCompat.getDrawable(context, R.mipmap.ic_launcher_new)?.toBitmap()
 
+        val actionIntent = Intent(context, NotificationBroadcast::class.java).apply {
+            putExtra("notificationId", lastNotifId)
+            action = "mark as read"
+        }
+
+        val actionPendingIntent =
+            PendingIntent.getBroadcast(context, 0, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+
         val builder = NotificationCompat.Builder(context, channel)
             .setSmallIcon(R.mipmap.ic_launcher_new)
             .setLargeIcon(bm)
@@ -60,7 +71,11 @@ class NotificationFactoryImpl @Inject constructor(
                     .bigText(preview)
             )
             .addAction(
-                NotificationCompat.Action(null, context.getString(R.string.mark_as_read), null)
+                NotificationCompat.Action(
+                    IconCompat.createFromIcon(context, bm?.toIcon()!!),
+                    context.getString(R.string.mark_as_read),
+                    actionPendingIntent
+                )
             )
             .setPriority(NotificationCompat.PRIORITY_HIGH)
 

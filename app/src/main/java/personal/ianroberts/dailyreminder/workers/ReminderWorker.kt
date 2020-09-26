@@ -65,7 +65,16 @@ class ReminderWorker @WorkerInject constructor(
             )
         }
 
-        return notificationRepo.insert(listOf(NotificationItem(lastNotifId + 1L, System.currentTimeMillis(), nextReminder)))
+        return notificationRepo.insert(
+            listOf(
+                NotificationItem(
+                    lastNotifId + 1L,
+                    System.currentTimeMillis(),
+                    nextReminder,
+                    notificationId = if (silent) 0 else lastNotifId + 1
+                )
+            )
+        )
             .subscribeOn(backgroundScheduler)
             .materialize<Unit>()
             .map {

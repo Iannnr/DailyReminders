@@ -1,7 +1,6 @@
 package personal.ianroberts.dailyreminder.notifications
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,9 +39,12 @@ class NotificationListFragment : Fragment() {
         recyclerView.addItemDecoration(dividerItemDecoration)
 
         vm.notifications.observe(viewLifecycleOwner, Observer {
-            Log.i("IanRoberts", "${it.size}")
-            adapter.updateData(it, {})
-            adapter.notifyDataSetChanged()
+            val sizeChanged = adapter.itemCount != it.size
+            adapter.updateData(it) {
+                adapter.notifyDataSetChanged()
+
+                if (sizeChanged) recyclerView.smoothScrollToPosition(0)
+            }
         })
     }
 }
